@@ -5,9 +5,10 @@ function TrainForm() {
 
     const [train, setTrain] = useState({
         trainId: "",
-        trainName: "",
         speed: "",
+        previousStation: "",
         location: "",
+        nextStation: "",
         platform: "",
         track: "",
         signal: "Green",
@@ -16,8 +17,6 @@ function TrainForm() {
     });
 
     const handleChange = (e) => {
-        console.log(e);
-        // console.log(e.target.value); 
         setTrain({
             ...train,
             [e.target.name]: e.target.value
@@ -49,15 +48,6 @@ function TrainForm() {
                 />
 
                 <input
-                    type="text"
-                    name="trainName"
-                    placeholder="Train Name"
-                    value={train.trainName}
-                    onChange={handleChange}
-                    required
-                />
-
-                <input
                     type="number"
                     name="speed"
                     placeholder="Speed (km/h)"
@@ -68,9 +58,27 @@ function TrainForm() {
 
                 <input
                     type="text"
+                    name="previousStation"
+                    placeholder="Previous Station"
+                    value={train.previousStation}
+                    onChange={handleChange}
+                    required
+                />
+
+                <input
+                    type="text"
                     name="location"
                     placeholder="Current Location"
                     value={train.location}
+                    onChange={handleChange}
+                    required
+                />
+
+                <input
+                    type="text"
+                    name="nextStation"
+                    placeholder="Next Station"
+                    value={train.nextStation}
                     onChange={handleChange}
                     required
                 />
